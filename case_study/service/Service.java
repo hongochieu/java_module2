@@ -1,4 +1,3 @@
 package case_study.service;
 
-public interface Service {
-}
+public interface Service { }

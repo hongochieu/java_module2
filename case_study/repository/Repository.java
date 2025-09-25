@@ -1,4 +1,10 @@
 package case_study.repository;
 
-public class Repository {
+import java.util.List;
+
+public interface Repository<T> {
+    List<T> findAll();
+    void add(T t);
+    void update(T t);
+    void delete(String id);
 }

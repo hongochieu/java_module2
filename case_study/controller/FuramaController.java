@@ -9,20 +9,23 @@ public class FuramaController {
 
     private final IEmployeeService employeeService = new EmployeeService();
     private final ICustomerService customerService = new CustomerService();
+    private final IFacilityService facilityService = new FacilityService();
 
     public void displayMainMenu() {
         while (true) {
             System.out.println("======= QUẢN LÝ FURAMA =======");
             System.out.println("1. Quản lý nhân viên");
             System.out.println("2. Quản lý khách hàng");
-            System.out.println("3. Thoát");
+            System.out.println("3. Quản lý cơ sở vật chất");
+            System.out.println("4. Thoát");
             System.out.print("Chọn một tùy chọn: ");
 
             String choice = sc.nextLine();
             switch (choice) {
                 case "1": employeeMenu(); break;
                 case "2": customerMenu(); break;
-                case "3":
+                case "3": facilityMenu(); break;
+                case "4":
                     System.out.println("Exiting program...");
                     return;
                 default:
@@ -70,6 +73,26 @@ public class FuramaController {
                 case "3": customerService.edit(); break;
                 case "4": customerService.delete(); break;
                 case "5": return;
+                default: System.out.println("❌ Lựa chọn không hợp lệ!");
+            }
+        }
+    }
+
+    private void facilityMenu() {
+        while (true) {
+            System.out.println("---- Quản lý cơ sở vật chất");
+            System.out.println("1. Hiển thị danh sách cơ sở vật chất");
+            System.out.println("2. Thêm cơ sở vật chất mới");
+            System.out.println("3. Xóa cơ sở vật chất");
+            System.out.println("4. Quay lại menu chính");
+            System.out.println("Chọn một tùy chọn");
+
+            String choice = sc.nextLine();
+            switch (choice) {
+                case "1": facilityService.display(); break;
+                case "2": facilityService.add(); break;
+                case "3": facilityService.delete(); break;
+                case "4": return;
                 default: System.out.println("❌ Lựa chọn không hợp lệ!");
             }
         }
